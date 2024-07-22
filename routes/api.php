@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +22,4 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('refresh', 'refresh');
 });
 
+Route::get('export/blank', [ExportController::class, 'exportBlankExcel'])->middleware('auth:api');

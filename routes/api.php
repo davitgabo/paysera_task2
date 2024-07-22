@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ImportController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +27,7 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 Route::get('export/blank', [ExportController::class, 'exportBlankExcel'])->middleware('auth:api');
+Route::post('import/articles', [ImportController::class, 'import'])->middleware('auth:api');
+Route::get('categories', [CategoryController::class, 'index']);
+Route::get('tags', [TagController::class, 'index']);
+Route::get('articles', [ArticleController::class, 'index']);
